@@ -42,8 +42,9 @@ public class Coder extends Student {
         return 0;
     }
 
-
+    /*
     //this method is for us to manually change int values of characteristics.
+    //I can do one for String as well. But not yet.
     public void setChar(String charact, int n) {
         if (charact.equals("graduation")) {
             graduationInt = n;
@@ -55,6 +56,8 @@ public class Coder extends Student {
             positionsInt = n;
         } else if (charact.equals("commitment")) {
             commitmentInt = n;
+        } else {
+            throw new RuntimeException("No such characteristics!");
         }
     }
 
@@ -77,18 +80,58 @@ public class Coder extends Student {
         } else if (charact.equals("commitment")) {
             commitment = s;
             commitmentInt = characteristics.get(s);
+        } else {
+            throw new RuntimeException("No such characteristics!");
         }
     }
 
-    public void getChar(String s, int n) {
 
+    public String getChar(String s) {
+        if (s.equals("name")) {
+            return name;
+        } else if (s.equals("graduation")) {
+            return graduation;
+        } else if (s.equals("major")) {
+            return major;
+        } else if (s.equals("skills")) {
+            return skills;
+        } else if (s.equals("positions")) {
+            return positions;
+        } else if (s.equals("commitment")) {
+            return commitment;
+        } else {
+            throw new RuntimeException("No such characteristics!");
+        }
+
+    }
+
+    public int getCharInt(String s) {
+        if (s.equals("graduation")) {
+            return graduationInt;
+        } else if (s.equals("major")) {
+            return majorInt;
+        } else if (s.equals("skills")) {
+            return skillsInt;
+        } else if (s.equals("positions")) {
+            return positionsInt;
+        } else if (s.equals("commitment")) {
+            return commitmentInt;
+        } else {
+            throw new RuntimeException("No such characteristics!");
+        }
     }
 
     public void printAllChar() {
-        System.out.println();
+        System.out.println("Name: " +name);
+        System.out.println("Graduation: " +graduation + " IntValue: " + graduationInt);
+        System.out.println("Major: " +major + " IntValue: " + majorInt);
+        System.out.println("Skills: " +skills + " IntValue: " + skillsInt);
+        System.out.println("Position: " +positions + " IntValue: " + positionsInt);
+        System.out.println("Commitment: " +commitment + " IntValue: " + commitmentInt);
+
     }
 
-
+    */
 
 
     private class Node<Project> {

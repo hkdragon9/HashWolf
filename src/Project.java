@@ -4,19 +4,36 @@ public class Project extends Student {
 
     //same as Coder, pls follow Coder's codes first.
 
-
-
-
     private String name;
-    private int grade;
+
+    private String graduation;
     private String major;
+    private String skills;
+    private String positions;
+    private String commitment;
+
+    private int graduationInt;
+    private int majorInt;
+    private int skillsInt;
+    private int positionsInt;
+    private int commitmentInt;
 
     private Heap heap;
 
-    Coder(String n, int g, String m) {
+    Project(String n, String g, String m, String s, String p, String c) {
         this.name = n;
-        this.grade = g;
+        this.graduation = g;
         this.major = m;
+        this.skills = s;
+        this.positions = p;
+        this.commitment = c;
+
+        this.graduationInt = characteristics.get(g);
+        this.majorInt = characteristics.get(m);
+        this.skillsInt = characteristics.get(s);
+        this.positionsInt = characteristics.get(p);
+        this.commitmentInt = characteristics.get(c);
+
     }
 
     //????????????
@@ -27,23 +44,6 @@ public class Project extends Student {
 
         return 0;
     }
-
-
-    public void setChar(String s, int n) {
-
-    }
-
-    public void getChar(String s, int n) {
-
-    }
-
-    public void printAllChar() {
-        System.out.println();
-    }
-
-
-
-    public
 
 
 
