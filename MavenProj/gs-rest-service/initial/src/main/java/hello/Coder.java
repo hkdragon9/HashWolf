@@ -22,7 +22,7 @@ public class Coder extends Student {
     //NewHeap heap = new NewHeap(this);
 
     Coder(String n, String g, String m, String s, String p, String c) {
-        super();
+        super(1);
         this.name = n;
         this.graduation = g;
         this.major = m;
@@ -44,6 +44,11 @@ public class Coder extends Student {
         this.CharSet.add(skills);
         this.CharSet.add(positions);
         this.CharSet.add(commitment);
+
+        for (Project proj: Application.database.projects) {
+            this.heap.add(proj);
+            proj.heap.add(this);
+        }
     }
 
     private class Node<Project> {

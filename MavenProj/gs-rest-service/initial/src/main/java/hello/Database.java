@@ -5,8 +5,8 @@ import java.util.HashSet;
 
 public class Database {
 
-    private HashSet<Student> projects;
-    private HashSet<Student> coders;
+    HashSet<Project> projects;
+    HashSet<Coder> coders;
 
     private HashMap<Integer, Student> studentMap;
 

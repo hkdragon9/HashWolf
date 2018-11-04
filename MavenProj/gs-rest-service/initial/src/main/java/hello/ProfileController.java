@@ -10,12 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class ProfileController {
 
-    @CrossOrigin(origins = "http://localhost:8888")
+    @CrossOrigin(origins = Application.FRONTEND_SERVER)
     @RequestMapping("/user")
     public Student user(@RequestParam(required=true) int id) {
-        System.out.println("########");
-        Student ans = Application.database.findUser(id);
-        System.out.println(ans.id);
-        return ans;
+        return Application.database.findUser(id);
     }
 }

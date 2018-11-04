@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class SwipeController {
 
-    @CrossOrigin(origins = "http://localhost:8888")
+    @CrossOrigin(origins = Application.FRONTEND_SERVER)
     @RequestMapping("/swipe")
     public void match(@RequestParam(required=true) int id, boolean like) {
         Student user = Application.database.findUser(id);

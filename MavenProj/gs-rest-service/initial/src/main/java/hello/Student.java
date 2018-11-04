@@ -75,8 +75,13 @@ public class Student implements Comparable<Student> {
     FixedQueue<Student> dislikedStudentQueue = new FixedQueue<>(5);
 
     Student() {
-      this.id = 1;
+      this.id = idGenerator();
       Application.database.addUser(this);
+    }
+
+    Student(int id) {
+        this.id = id;
+        Application.database.addUser(this);
     }
 
     private int idGenerator() {
