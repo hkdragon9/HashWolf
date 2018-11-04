@@ -28,5 +28,12 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
+
+
+        FixedQueue<Integer> test = new FixedQueue<>(10) ;
+
+        for (int i = 1; i <= 12; i++) {
+            System.out.println(test.add(i) + test.toString());
+        }
     }
 }

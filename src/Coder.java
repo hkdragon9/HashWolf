@@ -1,5 +1,6 @@
 
 public class Coder extends Student {
+    /*
     private String name;
 
     private String graduation;
@@ -13,6 +14,7 @@ public class Coder extends Student {
     private int skillsInt;
     private int positionsInt;
     private int commitmentInt;
+*/
 
     //NewHeap heap = new NewHeap(this);
 
@@ -32,7 +34,22 @@ public class Coder extends Student {
 
         heap = new NewHeap(this);
 
+        this.CharSet.add(graduation);
+        this.CharSet.add(major);
+        this.CharSet.add(skills);
+        this.CharSet.add(positions);
+        this.CharSet.add(commitment);
+
+
+
+
+
+
     }
+
+
+
+
 
 
 

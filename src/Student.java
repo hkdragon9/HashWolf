@@ -7,35 +7,44 @@ import java.util.*;
 public class Student implements Comparable<Student>{
 
 
-    private String name;
+    String name;
 
-    private String graduation;
-    private String major;
-    private String skills;
-    private String positions;
-    private String commitment;
+    String graduation;
+    String major;
+    String skills;
+    String positions;
+    String commitment;
 
-    private int graduationInt;
-    private int majorInt;
-    private int skillsInt;
-    private int positionsInt;
-    private int commitmentInt;
+    HashSet<String> CharSet = new HashSet<>();
+
+
+    int graduationInt;
+    int majorInt;
+    int skillsInt;
+    int positionsInt;
+    int commitmentInt;
     //and more
 
-    public NewHeap heap;
+    public NewHeap<Student> heap;
 
 
     public static TreeMap<String, Integer> characteristics = new TreeMap<>();
 
 
+    HashSet<Student> likedStudent = new HashSet<>();
+    HashSet<Student> dislikedStudent = new HashSet<>();
+
+    HashSet<Student> studentLikesYou = new HashSet<>();
 
 
 
+    HashSet<String> dislikeCharacteristics = new HashSet<>();
+
+    FixedQueue<Student> dislikedStudentQueue = new FixedQueue<>(5);
 
 
 
     Student() {
-
         characteristics.put("EECS", 10);
         characteristics.put("Math", 7);
         characteristics.put("Data Science", 9);
@@ -72,6 +81,65 @@ public class Student implements Comparable<Student>{
         characteristics.put("20 Hours per Week", 5);
 
 
+    }
+
+    //true stands for like, false is dislike
+    public void swipe(boolean ifLike) {
+        if(heap.isEmpty()) {
+            for (Student stud: dislikedStudent) {
+                heap.add(stud);
+            }
+            dislikedStudent = new HashSet<>();
+        }
+
+
+
+        Student next = heap.poll();
+        if (ifLike) {
+            likedStudent.add(next);
+            next.studentLikesYou.add(this);
+        } else {
+            dislikedStudent.add(next);
+            dislikedStudentQueue.add(next);
+
+            if (dislikedStudentQueue.size() == 5) {
+                findCommonDislikeCharacteristics(dislikedStudentQueue);
+                NewHeap<Student> newNewHeap = new NewHeap<>(this);
+                while (! heap.isEmpty()) {
+                    Student stud = heap.poll();
+                    for (String str: stud.CharSet) {
+                        if (dislikeCharacteristics.contains(str)) {
+                            dislikedStudent.add(stud);
+                        } else {
+                            newNewHeap.add(stud);
+                        }
+                    }
+                }
+
+                heap = newNewHeap;
+            }
+        }
+    }
+
+    public void findCommonDislikeCharacteristics(FixedQueue<Student> q) {
+
+        for (String str : characteristics.keySet()) {
+            int count = 0;
+            for (Student stud: q) {
+                if (stud.CharSet.contains(str)) {
+                    count++;
+                }
+                if (count >=4) {
+                    dislikeCharacteristics.add(str);
+                }
+            }
+        }
+
+    }
+
+
+    public Student nextStudent() {
+        return heap.peak();
     }
 
 
@@ -180,18 +248,6 @@ public class Student implements Comparable<Student>{
     }
 
 
-    //other function:
-
-    //reconstruct heap, but probably just use online api
-    public void heapify() {
-
-    }
-
-    //return the next one in the heap
-    public Student nextStudent() {
-        return null;
-
-    }
 
 
 

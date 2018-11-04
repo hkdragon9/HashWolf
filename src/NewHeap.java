@@ -14,6 +14,7 @@ public class NewHeap<T extends Comparable<T>>  {
         s = stu;
     }
 
+
     private int parent(int p) {
         return p/2;
     }
@@ -60,6 +61,10 @@ public class NewHeap<T extends Comparable<T>>  {
         }
     }
 
+    public boolean isEmpty() {
+        return size == 0;
+    }
+
     public void add(T element)
     {
         Heap[++size] = element;
@@ -89,13 +94,27 @@ public class NewHeap<T extends Comparable<T>>  {
         }
     }
 
-    public T remove()
+    public T peak() {
+        return Heap[1];
+    }
+
+    public T poll()
     {
         T popped = Heap[1];
         Heap[1] = Heap[size--];
         Heapify(1);
         return popped;
     }
+
+    /*
+    public boolean remove(T e) {
+        for (int i = 1; i <= size; i++) {
+            if (Heap[i].equals(e)) {
+
+            }
+        }
+    }
+    */
 
     public static void main(String...arg)
     {
