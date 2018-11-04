@@ -1,7 +1,7 @@
 #! /bin/bash
 
-java -jar ./springAPI/gs-rest-service/complete/target/gs-rest-service-0.1.0.jar
+java -jar ./MavenProj/gs-rest-service/initial/target/gs-rest-service-0.1.0.jar &
 
-PREV=$!
+node app.js &
 
-ECHO $PREV
+exit 0
