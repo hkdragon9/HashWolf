@@ -9,7 +9,6 @@ public class Application {
     static Database database = new Database();
 
     public static void main(String[] args) {
-
         SpringApplication.run(Application.class, args);
     }
 }

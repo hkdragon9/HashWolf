@@ -1,7 +1,5 @@
 package hello;
 
-import jdk.nashorn.api.tree.CompoundAssignmentTree;
-
 import java.util.HashMap;
 import java.util.*;
 
@@ -77,7 +75,7 @@ public class Student implements Comparable<Student> {
     FixedQueue<Student> dislikedStudentQueue = new FixedQueue<>(5);
 
     Student() {
-      this.id = idGenerator();
+      this.id = 1;
       Application.database.addUser(this);
     }
 
@@ -85,17 +83,21 @@ public class Student implements Comparable<Student> {
       return (int) (Math.random() * 1000000000);
     }
 
+    public String getName() { return name; }
+    public String getGraduation() { return graduation; }
+    public String getMajor() { return major; }
+    public String getSkills() { return skills; }
+    public String getPositions() { return positions; }
+    public String getCommitment() { return commitment; }
 
     //true stands for like, false is dislike
     public void swipe(boolean ifLike) {
-        if(heap.isEmpty()) {
+        if (heap.isEmpty()) {
             for (Student stud: dislikedStudent) {
                 heap.add(stud);
             }
             dislikedStudent = new HashSet<>();
         }
-
-
 
         Student next = heap.poll();
         if (ifLike) {

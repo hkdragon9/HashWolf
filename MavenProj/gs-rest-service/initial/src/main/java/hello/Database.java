@@ -13,6 +13,7 @@ public class Database {
     Database() {
         coders = new HashSet<>();
         projects = new HashSet<>();
+        studentMap = new HashMap<>();
     }
 
     void addUser(Student s) {
@@ -33,7 +34,7 @@ public class Database {
     }
 
     public Student findUser(int id) {
-        assert studentMap.containsKey(id);
+        assert studentMap.containsKey(id) : "User not found.";
         return studentMap.get(id);
     }
 }
