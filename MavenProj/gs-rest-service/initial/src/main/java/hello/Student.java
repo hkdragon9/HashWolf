@@ -152,7 +152,7 @@ public class Student implements Comparable<Student> {
                 Math.abs(majorInt - s.majorInt) +
                 Math.abs(skillsInt - s.skillsInt) +
                 Math.abs(positionsInt - s.positionsInt) +
-                Math.abs(commitmentInt - s .commitmentInt);
+                Math.abs(commitmentInt - s.commitmentInt);
     }
 
     //this method is for us to manually change int values of characteristics.

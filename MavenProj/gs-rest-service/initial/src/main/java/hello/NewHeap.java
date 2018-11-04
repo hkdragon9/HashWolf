@@ -54,8 +54,7 @@ public class NewHeap<T extends Comparable<T>>  {
                 {
                     swap(pos, leftchild(pos));
                     Heapify(leftchild(pos));
-                }else
-                {
+                }else {
                     swap(pos, rightchild(pos));
                     Heapify(rightchild(pos));
                 }
