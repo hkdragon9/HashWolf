@@ -1,5 +1,7 @@
 package hello;
 
+import java.util.HashSet;
+
 public class Coder extends Student {
     /*
     private String name;
@@ -20,6 +22,7 @@ public class Coder extends Student {
     //NewHeap heap = new NewHeap(this);
 
     Coder(String n, String g, String m, String s, String p, String c) {
+        super();
         this.name = n;
         this.graduation = g;
         this.major = m;
@@ -35,27 +38,13 @@ public class Coder extends Student {
 
         heap = new NewHeap(this);
 
+        this.CharSet = new HashSet<>();
         this.CharSet.add(graduation);
         this.CharSet.add(major);
         this.CharSet.add(skills);
         this.CharSet.add(positions);
         this.CharSet.add(commitment);
-
-
-
-
-
-
     }
-
-
-
-
-
-
-
-
-
 
     private class Node<Project> {
         private Project p;

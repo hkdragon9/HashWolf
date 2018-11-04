@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class TestController {
+public class SwipeController {
 
     @CrossOrigin(origins = "http://localhost:8888")
-    @RequestMapping("/nextMatch")
-    public TestObj nextMatch(@RequestParam(required=false) boolean like) {
-        return new TestObj(3, 5);
+    @RequestMapping("/swipe")
+    public void match(@RequestParam(required=true) int id, boolean like) {
+        Student user = Application.database.findUser(id);
+        user.swipe(like);
     }
 
 //    @GetMapping("/greeting-javaconfig")
