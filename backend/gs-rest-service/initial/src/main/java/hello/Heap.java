@@ -98,24 +98,24 @@ public class Heap<T extends Comparable<T>>  {
         return popped;
     }
 
-    public static void main(String...arg)
-    {
-        System.out.println("The Max Heap is ");
-        Heap maxHeap = new Heap();
-        maxHeap.add(new Integer(5));
-        maxHeap.add(new Integer(3));
-        maxHeap.add(new Integer(17));
-        maxHeap.add(new Integer(10));
-        maxHeap.add(new Integer(84));
-        maxHeap.add(new Integer(19));
-        maxHeap.add(new Integer(6));
-        maxHeap.add(new Integer(22));
-        maxHeap.add(new Integer(9));
-        maxHeap.buildheap();
-
-        maxHeap.print();
-        System.out.println("The max val is " + maxHeap.remove());
-    }
+    // public static void main(String...arg)
+    // {
+    //     System.out.println("The Max Heap is ");
+    //     Heap maxHeap = new Heap();
+    //     maxHeap.add(new Integer(5));
+    //     maxHeap.add(new Integer(3));
+    //     maxHeap.add(new Integer(17));
+    //     maxHeap.add(new Integer(10));
+    //     maxHeap.add(new Integer(84));
+    //     maxHeap.add(new Integer(19));
+    //     maxHeap.add(new Integer(6));
+    //     maxHeap.add(new Integer(22));
+    //     maxHeap.add(new Integer(9));
+    //     maxHeap.buildheap();
+    //
+    //     maxHeap.print();
+    //     System.out.println("The max val is " + maxHeap.remove());
+    // }
 
 
 

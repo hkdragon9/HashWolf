@@ -13,6 +13,7 @@ public class Application {
         Coder coder = new Coder("Kenny", "Sophomore", "EECS", "SQL", "Project Manager", "4 Hours per Week");
         Project p1 = new Project("p1", "PHD", "EECS", "Machine Learning", "Frontend Software Engineer", "16 Hours per Week");
         Project p2 = new Project("p2", "Sophomore", "EECS", "Machine Learning", "Frontend Software Engineer", "16 Hours per Week");
+        Project p3 = new Project("p3", "Sophomore", "EECS", "Machine Learning", "Frontend Software Engineer", "16 Hours per Week");
         SpringApplication.run(Application.class, args);
     }
 }

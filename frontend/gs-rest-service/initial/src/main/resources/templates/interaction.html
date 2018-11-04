@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Ghibli App</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Dosis:400,700" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <div id="root"></div>
+  <button onclick="like()">LIKE</button>
+  <button onclick="dislike()">DISLIKE</button>
+
+
+  <div id="box" th:text=${id}></div>
+
+  <script>
+  const like = () => decision(true);
+  const dislike = () => decision(false);
+  const decision = (dis) => {
+    var request = new XMLHttpRequest();
+    request.open('GET', `http://localhost:8080/swipe?id=1&like=${dis}`, true);
+
+    request.onload = function () {
+      document.getElementById("box").innerHTML = this.response;
+    }
+
+    request.send();
+  }
+
+  </script>
+
+  <script src="interactionScripts.js"></script>
+</body>
+
+</html>

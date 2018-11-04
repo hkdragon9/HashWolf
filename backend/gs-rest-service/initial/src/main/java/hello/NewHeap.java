@@ -30,7 +30,7 @@ public class NewHeap<T extends Comparable<T>>  {
     }
 
     private boolean isLeaf(int pos) {
-        if (pos >= (size/ 2) && pos < size) {
+        if (pos >= (size/ 2 + 1) && pos < size + 1) {
             return true;
         }
         return false;

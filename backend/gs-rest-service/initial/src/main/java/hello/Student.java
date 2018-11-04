@@ -75,8 +75,8 @@ public class Student implements Comparable<Student> {
     FixedQueue<Student> dislikedStudentQueue = new FixedQueue<>(5);
 
     Student() {
-      this.id = idGenerator();
-      Application.database.addUser(this);
+        this.id = idGenerator();
+        Application.database.addUser(this);
     }
 
     Student(int id) {
@@ -153,6 +153,9 @@ public class Student implements Comparable<Student> {
     //compares the charcteristics between two students(coders/project)
     @Override
     public int compareTo(Student s) {
+        if (this == null || s == null) {
+          return Integer.MAX_VALUE;
+        }
         return Math.abs(graduationInt - s.graduationInt) +
                 Math.abs(majorInt - s.majorInt) +
                 Math.abs(skillsInt - s.skillsInt) +
