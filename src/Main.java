@@ -17,13 +17,16 @@ public class Main {
     }
 
     public void addProject(Project p) {
-
+        ProjectSet.add(p);
+        for (Coder c: CoderSet) {
+            p.heap.add(c);
+            c.heap.add(p);
+        }
     }
 
 
 
 
-    //swipe left and swipe right
 
 
     public static void main(String[] args) {
