@@ -189,6 +189,7 @@ public class Student implements Comparable<Student>{
 
     //return the next one in the heap
     public Student nextStudent() {
+        return null;
 
     }
 
