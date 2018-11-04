@@ -10,12 +10,6 @@ container.setAttribute('class', 'container');
 app.appendChild(logo);
 app.appendChild(container);
 
-var request1 = new XMLHttpRequest();
-request1.open('GET', 'http://localhost:8080/greeting', true);
-request1.onload = function () {
-  console.log(this.response);
-}
-request1.send();
 
 var request = new XMLHttpRequest();
 request.open('GET', 'https://ghibliapi.herokuapp.com/films', true);
