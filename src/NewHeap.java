@@ -1,15 +1,15 @@
-public class NewHeap<T extends Comparable<T>>  {
+public class NewHeap<Student extends Comparable<Student>>  {
 
-    private T[] Heap;
-    private int size;
+    public Student[] Heap;
+    public int size;
 
-    private T s;
+    private Student s;
 
 
 
-    public NewHeap(T stu) {
+    public NewHeap(Student stu) {
         this.size = 0;
-        Heap = (T []) new Comparable[100];
+        Heap = (Student []) new Comparable[100];
 
         s = stu;
     }
@@ -28,14 +28,14 @@ public class NewHeap<T extends Comparable<T>>  {
     }
 
     private boolean isLeaf(int pos) {
-        if (pos >= (size/ 2) && pos < size) {
+        if (pos >= (size/ 2) + 1 && pos < size+1) {
             return true;
         }
         return false;
     }
 
     private void swap(int fp, int sp) {
-        T t;
+        Student t;
         t = Heap[fp];
         Heap[fp] = Heap[sp];
         Heap[sp] = t;
@@ -65,7 +65,7 @@ public class NewHeap<T extends Comparable<T>>  {
         return size == 0;
     }
 
-    public void add(T element)
+    public void add(Student element)
     {
         Heap[++size] = element;
         int current = size;
@@ -94,13 +94,13 @@ public class NewHeap<T extends Comparable<T>>  {
         }
     }
 
-    public T peak() {
+    public Student peak() {
         return Heap[1];
     }
 
-    public T poll()
+    public Student poll()
     {
-        T popped = Heap[1];
+        Student popped = Heap[1];
         Heap[1] = Heap[size--];
         Heapify(1);
         return popped;

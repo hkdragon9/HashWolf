@@ -102,7 +102,7 @@ public class Student implements Comparable<Student>{
             dislikedStudent.add(next);
             dislikedStudentQueue.add(next);
 
-            if (dislikedStudentQueue.size() == 5) {
+            if (dislikedStudentQueue.size() == 2) {
                 findCommonDislikeCharacteristics(dislikedStudentQueue);
                 NewHeap<Student> newNewHeap = new NewHeap<>(this);
                 while (! heap.isEmpty()) {
@@ -146,6 +146,12 @@ public class Student implements Comparable<Student>{
     //compares the charcteristics between two students(coders/project)
     @Override
     public int compareTo(Student s) {
+        if (s == null && this == null) {
+            throw new RuntimeException("Comparing two null students!");
+        }
+        if (s == null || this == null) {
+            return Integer.MAX_VALUE;
+        }
 
         return Math.abs(graduationInt - s.graduationInt) +
                 Math.abs(majorInt - s.majorInt) +
