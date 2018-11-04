@@ -5,7 +5,6 @@ import jdk.nashorn.api.tree.CompoundAssignmentTree;
 import java.util.HashMap;
 import java.util.*;
 
-
 public class Student implements Comparable<Student> {
 
     String name;
@@ -36,49 +35,50 @@ public class Student implements Comparable<Student> {
 
     HashSet<String> dislikeCharacteristics = new HashSet<>();
 
-    Database database = new Database();
-
     public static TreeMap<String, Integer> characteristics = new TreeMap<>();
-    characteristics.put("EECS", 10);
-    characteristics.put("Math", 7);
-    characteristics.put("Data Science", 9);
-    characteristics.put("Statistics", 8);
-    characteristics.put("Business", 3);
-    characteristics.put("Media Studies", 1);
 
-    characteristics.put("Freshman", 1);
-    characteristics.put("Sophomore", 2);
-    characteristics.put("Junior", 3);
-    characteristics.put("Senior", 4);
-    characteristics.put("Graduate", 5);
-    characteristics.put("PHD", 6);
+    static {
+        characteristics.put("EECS", 10);
+        characteristics.put("Math", 7);
+        characteristics.put("Data Science", 9);
+        characteristics.put("Statistics", 8);
+        characteristics.put("Business", 3);
+        characteristics.put("Media Studies", 1);
 
-    characteristics.put("Java", 3);
-    characteristics.put("Python", 3);
-    characteristics.put("SQL", 2);
-    characteristics.put("Machine Learning", 5);
-    characteristics.put("Excel", 1);
-    characteristics.put("Microsoft office", 1);
+        characteristics.put("Freshman", 1);
+        characteristics.put("Sophomore", 2);
+        characteristics.put("Junior", 3);
+        characteristics.put("Senior", 4);
+        characteristics.put("Graduate", 5);
+        characteristics.put("PHD", 6);
 
-    characteristics.put("Backend Software Engineer", 5);
-    characteristics.put("Frontend Software Engineer", 10);
-    characteristics.put("IOS Software Engineer", 9);
-    characteristics.put("WebDev Software Engineer", 9);
-    characteristics.put("FullStack Software Engineer", 7);
-    characteristics.put("Data Analyst", 5);
-    characteristics.put("Project Manager", 1);
+        characteristics.put("Java", 3);
+        characteristics.put("Python", 3);
+        characteristics.put("SQL", 2);
+        characteristics.put("Machine Learning", 5);
+        characteristics.put("Excel", 1);
+        characteristics.put("Microsoft office", 1);
 
-    characteristics.put("4 Hours per Week", 1);
-    characteristics.put("8 Hours per Week", 2);
-    characteristics.put("12 Hours per Week", 3);
-    characteristics.put("16 Hours per Week", 4);
-    characteristics.put("20 Hours per Week", 5);
+        characteristics.put("Backend Software Engineer", 5);
+        characteristics.put("Frontend Software Engineer", 10);
+        characteristics.put("IOS Software Engineer", 9);
+        characteristics.put("WebDev Software Engineer", 9);
+        characteristics.put("FullStack Software Engineer", 7);
+        characteristics.put("Data Analyst", 5);
+        characteristics.put("Project Manager", 1);
+
+        characteristics.put("4 Hours per Week", 1);
+        characteristics.put("8 Hours per Week", 2);
+        characteristics.put("12 Hours per Week", 3);
+        characteristics.put("16 Hours per Week", 4);
+        characteristics.put("20 Hours per Week", 5);
+    }
 
     FixedQueue<Student> dislikedStudentQueue = new FixedQueue<>(5);
 
     Student() {
       this.id = idGenerator();
-      database.addUser(this);
+      Application.database.addUser(this);
     }
 
     private int idGenerator() {
@@ -137,19 +137,15 @@ public class Student implements Comparable<Student> {
                 }
             }
         }
-
     }
-
 
     public Student nextStudent() {
         return heap.peak();
     }
 
-
     //compares the charcteristics between two students(coders/project)
     @Override
     public int compareTo(Student s) {
-
         return Math.abs(graduationInt - s.graduationInt) +
                 Math.abs(majorInt - s.majorInt) +
                 Math.abs(skillsInt - s.skillsInt) +
@@ -199,29 +195,24 @@ public class Student implements Comparable<Student> {
         } else {
             throw new RuntimeException("No such characteristics!");
         }
-
         this.heap.buildheap();
-
     }
-
 
     public String getChar(String s) {
         if (s.equals("name")) {
             return name;
-        } else if (s.equals("graduation")) {
+        } if (s.equals("graduation")) {
             return graduation;
-        } else if (s.equals("major")) {
+        } if (s.equals("major")) {
             return major;
-        } else if (s.equals("skills")) {
+        } if (s.equals("skills")) {
             return skills;
-        } else if (s.equals("positions")) {
+        } if (s.equals("positions")) {
             return positions;
-        } else if (s.equals("commitment")) {
+        } if (s.equals("commitment")) {
             return commitment;
-        } else {
-            throw new RuntimeException("No such characteristics!");
         }
-
+        throw new RuntimeException("No such characteristics!");
     }
 
     public int getCharInt(String s) {

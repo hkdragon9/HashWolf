@@ -12,8 +12,8 @@ public class ProfileController {
 
     @CrossOrigin(origins = "http://localhost:8888")
     @RequestMapping("/user")
-    public TestObj user(@RequestParam(required=true) int id) {
-        return new TestObj(3, 5);
+    public Student user(@RequestParam(required=true) int id) {
+        return Application.database.findUser(id);
     }
 
 //    @GetMapping("/greeting-javaconfig")
