@@ -18,7 +18,7 @@ public class Project extends Student {
     private int positionsInt;
     private int commitmentInt;
 
-    private Heap heap;
+    //NewHeap heap = new NewHeap(this);
 
     Project(String n, String g, String m, String s, String p, String c) {
         this.name = n;
@@ -34,16 +34,10 @@ public class Project extends Student {
         this.positionsInt = characteristics.get(p);
         this.commitmentInt = characteristics.get(c);
 
+        heap  = new NewHeap(this);
     }
 
-    //????????????
-    @Override
-    public int compareTo(Coder o) {
 
-
-
-        return 0;
-    }
 
 
 

@@ -1,8 +1,10 @@
+import jdk.nashorn.api.tree.CompoundAssignmentTree;
+
 import java.util.HashMap;
 import java.util.*;
 
 
-public class Student {
+public class Student implements Comparable<Student>{
 
 
     private String name;
@@ -20,7 +22,7 @@ public class Student {
     private int commitmentInt;
     //and more
 
-    //private Heap heap;
+    public NewHeap heap;
 
 
     public static TreeMap<String, Integer> characteristics = new TreeMap<>();
@@ -75,11 +77,13 @@ public class Student {
 
     //compares the charcteristics between two students(coders/project)
     @Override
-    public int compareTo(Coder o) {
+    public int compareTo(Student s) {
 
-
-
-        return 0;
+        return Math.abs(graduationInt - s.graduationInt) +
+                Math.abs(majorInt - s.majorInt) +
+                Math.abs(skillsInt - s.skillsInt) +
+                Math.abs(positionsInt - s.positionsInt) +
+                Math.abs(commitmentInt - s .commitmentInt);
     }
 
     //this method is for us to manually change int values of characteristics.
@@ -98,6 +102,8 @@ public class Student {
         } else {
             throw new RuntimeException("No such characteristics!");
         }
+        this.heap.buildheap();
+
     }
 
     //this method is for the user to change their information
@@ -122,6 +128,9 @@ public class Student {
         } else {
             throw new RuntimeException("No such characteristics!");
         }
+
+        this.heap.buildheap();
+
     }
 
 

@@ -1,13 +1,17 @@
-public class Heap<T extends Comparable<T>>  {
+public class NewHeap<T extends Comparable<T>>  {
 
     private T[] Heap;
     private int size;
 
+    private T s;
 
 
-    public Heap() {
+
+    public NewHeap(T stu) {
         this.size = 0;
         Heap = (T []) new Comparable[100];
+
+        s = stu;
     }
 
     private int parent(int p) {
@@ -40,11 +44,10 @@ public class Heap<T extends Comparable<T>>  {
     private void Heapify(int pos) {
         if (!isLeaf(pos))
         {
-            if (Heap[pos].compareTo(Heap[leftchild(pos)]) < 0  || Heap[pos].compareTo
-                    (Heap[rightchild
-                            (pos)])  < 0)
+            if (s.compareTo(Heap[pos]) > s.compareTo(Heap[leftchild(pos)])  ||
+                    s.compareTo(Heap[pos]) > s.compareTo(Heap[rightchild(pos)]) )
             {
-                if (Heap[leftchild(pos)].compareTo(Heap[rightchild(pos)]) > 0)
+                if (s.compareTo(Heap[leftchild(pos)]) < s.compareTo(Heap[rightchild(pos)]) )
                 {
                     swap(pos, leftchild(pos));
                     Heapify(leftchild(pos));
@@ -61,9 +64,7 @@ public class Heap<T extends Comparable<T>>  {
     {
         Heap[++size] = element;
         int current = size;
-        while
-                (Heap[parent(current)] != null && Heap[current].compareTo(Heap[parent(current)
-                ]) > 0) {
+        while (Heap[parent(current)] != null && s.compareTo(Heap[current]) < s.compareTo(Heap[parent(current)])) {
             swap(current, parent(current));
             current = parent(current);
         }
